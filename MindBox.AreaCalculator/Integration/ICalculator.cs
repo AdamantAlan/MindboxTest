@@ -4,7 +4,7 @@ namespace MindBox.SquareCalculator.Integration
 {
     public interface ICalculator
     {
-        Task<IEnumerable<SquareCalculatorResult>> GetSquareShapeAsync(IEnumerable<IShape> shapes);
+        Task<List<SquareCalculatorResult>> GetSquareShapeAsync(IEnumerable<IShape> shapes);
         Task<SquareCalculatorResult> GetSquareShapeAsync(IShape shape);
     }
 }

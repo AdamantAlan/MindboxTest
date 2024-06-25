@@ -16,7 +16,7 @@ namespace MindBox
             var calc = provider.GetRequiredService<ICalculator>();
 
             //Проверка, что все работает
-            var result = await calc.GetSquareShapeAsync(new Circle(12)).ConfigureAwait(false);
+            var result = await calc.GetSquareShapeAsync(new Circle(-2)).ConfigureAwait(false);
             Console.WriteLine(result.ToString());
             List<IShape> shapes = [new Circle(12), new Triangle(13, 7, 16), new Triangle(13, 5, 16)];
             var results = await calc.GetSquareShapeAsync(shapes).ConfigureAwait(false);
@@ -27,5 +27,4 @@ namespace MindBox
 
 //todo
 //проверка на прямоугольный треугольник
-//эксершены и логи
 //тесты

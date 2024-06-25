@@ -12,20 +12,31 @@ namespace MindBox.SquareCalculator.Integration
             _visitor = visitor;
         }
 
-        public async Task<SquareCalculatorResult> GetSquareShapeAsync(IShape shape) => await Task.Run(() => 
-                new SquareCalculatorResult()
-                {
-                    TypeShape = nameof(shape),
-                    Area = shape.GetSquare(_visitor)
-                });
+        public async Task<SquareCalculatorResult> GetSquareShapeAsync(IShape shape)
+        {
+            if (shape is null)
+                throw new ArgumentNullException($"{nameof(shape)} is null");
 
-        public async Task<IEnumerable<SquareCalculatorResult>> GetSquareShapeAsync(IEnumerable<IShape> shapes) => await Task.Run(() => 
+            return await Task.Run(() => new SquareCalculatorResult()
+            {
+                TypeShape = nameof(shape),
+                Area = shape!.GetSquare(_visitor)
+            });
+        }
+
+        public async Task<List<SquareCalculatorResult>> GetSquareShapeAsync(IEnumerable<IShape> shapes)
+        {
+            if (shapes is null || !shapes.Any())
+                throw new ArgumentNullException($"{nameof(shapes)} is null or empty");
+
+            return await Task.Run(() =>
             {
                 return shapes.Select(ss => new SquareCalculatorResult()
                 {
                     TypeShape = ss.GetType().Name,
                     Area = ss.GetSquare(_visitor)
-                });
+                }).ToList();
             });
+        }
     }
 }
