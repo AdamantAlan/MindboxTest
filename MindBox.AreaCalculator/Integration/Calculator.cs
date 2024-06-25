@@ -19,8 +19,8 @@ namespace MindBox.SquareCalculator.Integration
 
             return await Task.Run(() => new SquareCalculatorResult()
             {
-                TypeShape = nameof(shape),
-                Area = shape!.GetSquare(_visitor)
+                TypeShape = shape.GetType().Name,
+                Square = shape!.GetSquare(_visitor)
             });
         }
 
@@ -34,7 +34,7 @@ namespace MindBox.SquareCalculator.Integration
                 return shapes.Select(ss => new SquareCalculatorResult()
                 {
                     TypeShape = ss.GetType().Name,
-                    Area = ss.GetSquare(_visitor)
+                    Square = ss.GetSquare(_visitor)
                 }).ToList();
             });
         }
