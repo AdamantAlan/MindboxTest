@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindBox", "MindBox.csproj", "{450E63F6-BFA2-4651-88A2-2D244FA155F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBox", "MindBox.csproj", "{450E63F6-BFA2-4651-88A2-2D244FA155F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindBox.SquareCalculator", "..\MindBox.AreaCalculator\MindBox.SquareCalculator.csproj", "{1D4A65D7-1347-4AC4-A365-64336298C7C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MindBox.SquareCalculator", "..\MindBox.AreaCalculator\MindBox.SquareCalculator.csproj", "{1D4A65D7-1347-4AC4-A365-64336298C7C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mindbox.SquareCalculator.Tests", "..\Mindbox.SquareCalculator.Tests\Mindbox.SquareCalculator.Tests.csproj", "{287029D2-ADA4-4C3B-8467-D0FF306E974B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1D4A65D7-1347-4AC4-A365-64336298C7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D4A65D7-1347-4AC4-A365-64336298C7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D4A65D7-1347-4AC4-A365-64336298C7C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{287029D2-ADA4-4C3B-8467-D0FF306E974B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{287029D2-ADA4-4C3B-8467-D0FF306E974B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{287029D2-ADA4-4C3B-8467-D0FF306E974B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{287029D2-ADA4-4C3B-8467-D0FF306E974B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,6 @@
 ﻿using MindBox.SquareCalculator.Shapes;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("Mindbox.SquareCalculator.Tests")]
 
 namespace MindBox.SquareCalculator.Visitor
 {
@@ -9,7 +11,7 @@ namespace MindBox.SquareCalculator.Visitor
             if (shape.Radius <= 0)
                 throw new ArgumentException("Radius is less than or equal to zero");
 
-            return Math.PI * Math.Pow(shape.Radius, 2);
+            return Math.Round(Math.PI * Math.Pow(shape.Radius, 2), 2);
         }
         
 
@@ -19,7 +21,7 @@ namespace MindBox.SquareCalculator.Visitor
                 throw new ArgumentException("Sides of the triangle are less than or equal to zero");
 
             double p = (shape.SideA + shape.SideB + shape.SideC) / 2;
-            return Math.Sqrt(p * (p - shape.SideA) * (p - shape.SideB) * (p - shape.SideC));
+            return Math.Round(Math.Sqrt(p * (p - shape.SideA) * (p - shape.SideB) * (p - shape.SideC)), 2);
         }
     }
 }
