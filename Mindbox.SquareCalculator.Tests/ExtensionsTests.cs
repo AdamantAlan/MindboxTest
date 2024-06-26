@@ -1,8 +1,5 @@
-﻿
-using MindBox.SquareCalculator.Extensions;
+﻿using MindBox.SquareCalculator.Extensions;
 using MindBox.SquareCalculator.Shapes;
-using MindBox.SquareCalculator.Visitor;
-using Moq;
 
 namespace Mindbox.SquareCalculator.Tests
 {
@@ -11,7 +8,7 @@ namespace Mindbox.SquareCalculator.Tests
         #region TriangleExtentions
 
         [Theory]
-        [InlineData(13,7,16)]
+        [InlineData(13, 7, 16)]
         [InlineData(13, 5, 16)]
         public void GetIfRectangular_GetTriangle(double a, double b, double c)
         {

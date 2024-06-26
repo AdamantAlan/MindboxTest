@@ -38,7 +38,7 @@ namespace Mindbox.SquareCalculator.Tests
         }
 
         [Theory]
-        [InlineData(nameof(RectangularTriangle), 25, 3, 4, 5 )]
+        [InlineData(nameof(RectangularTriangle), 25, 3, 4, 5)]
         [InlineData(nameof(RectangularTriangle), 25, 5, 12, 13)]
         public async Task GetSquareShapeAsync_RectangularTriangle(string expectType, double expectSquare, double a, double b, double c)
         {
@@ -93,15 +93,15 @@ namespace Mindbox.SquareCalculator.Tests
 
         [Theory]
         [InlineData(15, 13, 7, 16, 12, 2, 25, 3, 4, 5)]
-        public async Task GetSquareShapeAsync_ListShape(double expectSquareTriangle, double a, double b, double c, 
+        public async Task GetSquareShapeAsync_ListShape(double expectSquareTriangle, double a, double b, double c,
             double expectSquareCircle, double radius, double expectedRectangle, double rA, double rB, double rC)
         {
-            var result = await _calculator.GetSquareShapeAsync([new Triangle(a, b, c), new Circle(radius), new Triangle(rA , rB , rC)]);
+            var result = await _calculator.GetSquareShapeAsync([new Triangle(a, b, c), new Circle(radius), new Triangle(rA, rB, rC)]);
             var triangleResult = result.First(r => r.TypeShape == nameof(Triangle));
             var circleResult = result.First(r => r.TypeShape == nameof(Circle));
             var rectungularResult = result.First(r => r.TypeShape == nameof(RectangularTriangle));
 
-            Assert.True(triangleResult.Square == expectSquareTriangle && 
+            Assert.True(triangleResult.Square == expectSquareTriangle &&
                 circleResult.Square == expectSquareCircle &&
                 rectungularResult.Square == expectedRectangle);
         }
@@ -121,6 +121,5 @@ namespace Mindbox.SquareCalculator.Tests
         }
 
         #endregion
-
     }
 }

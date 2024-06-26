@@ -15,13 +15,13 @@ namespace MindBox
             var provider = services.BuildServiceProvider();
             var calc = provider.GetRequiredService<ICalculator>();
 
-            //Проверка, что все работает
+            //Проверка, что все работает по одной фигуре
             var result = await calc.GetSquareShapeAsync(new Triangle(3, 4, 5)).ConfigureAwait(false);
             Console.WriteLine(result.ToString());
-
+            //Проверка, что все работает по массиву фигур
             List<IShape> shapes = [new Circle(12), new Triangle(13, 7, 16), new Triangle(3, 4, 5)];
             var results = await calc.GetSquareShapeAsync(shapes).ConfigureAwait(false);
-            results.ToList().ForEach(x => Console.WriteLine(x.ToString()));
+            results.ForEach(x => Console.WriteLine(x.ToString()));
         }
     }
 }

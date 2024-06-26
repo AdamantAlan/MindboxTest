@@ -18,7 +18,7 @@ namespace MindBox.SquareCalculator.Integration
             if (shape is null)
                 throw new ArgumentNullException($"{nameof(shape)} is null");
 
-            return await Task.Run(() => 
+            return await Task.Run(() =>
             {
                 shape = shape is Triangle ? (shape as Triangle).GetIfRectangular() : shape;
                 return new SquareCalculatorResult()
