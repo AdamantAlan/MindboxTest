@@ -1,4 +1,5 @@
-﻿using MindBox.SquareCalculator.Shapes;
+﻿using MindBox.SquareCalculator.Extensions;
+using MindBox.SquareCalculator.Shapes;
 using MindBox.SquareCalculator.Visitor;
 
 namespace MindBox.SquareCalculator.Integration
@@ -17,10 +18,14 @@ namespace MindBox.SquareCalculator.Integration
             if (shape is null)
                 throw new ArgumentNullException($"{nameof(shape)} is null");
 
-            return await Task.Run(() => new SquareCalculatorResult()
+            return await Task.Run(() => 
             {
-                TypeShape = shape.GetType().Name,
-                Square = shape!.GetSquare(_visitor)
+                shape = shape is Triangle ? (shape as Triangle).GetIfRectangular() : shape;
+                return new SquareCalculatorResult()
+                {
+                    TypeShape = shape.GetType().Name,
+                    Square = shape!.GetSquare(_visitor)
+                };
             });
         }
 
@@ -31,6 +36,7 @@ namespace MindBox.SquareCalculator.Integration
 
             return await Task.Run(() =>
             {
+                shapes = shapes.ShapesWithRectangularTriangle();
                 return shapes.Select(ss => new SquareCalculatorResult()
                 {
                     TypeShape = ss.GetType().Name,

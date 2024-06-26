@@ -56,5 +56,28 @@ namespace Mindbox.SquareCalculator.Tests
         }
 
         #endregion
+
+        #region Rectangular Triangle
+
+        [Theory]
+        [InlineData(3, 4, 5, 6)]
+        [InlineData(5, 12, 13, 30)]
+        public void GetSquare_RectangularTriangleSquare(double a, double b, double c, double expect)
+        {
+            var result = _visitor.GetSquare(new RectangularTriangle(a, b, c));
+            Assert.Equal(result, expect);
+        }
+
+        [Theory]
+        [InlineData(-1, 7, 16)]
+        [InlineData(13, -2, 16)]
+        [InlineData(0, 7, 16)]
+        [InlineData(13, 0, 16)]
+        public void GetSquare_RectangularTriangleExceptions(double a, double b, double c)
+        {
+            Assert.Throws<ArgumentException>(() => { _visitor.GetSquare(new RectangularTriangle(a, b, c)); });
+        }
+
+        #endregion
     }
 }
