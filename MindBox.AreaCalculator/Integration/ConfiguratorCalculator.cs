@@ -5,6 +5,9 @@ namespace MindBox.SquareCalculator.Integration
 {
     public static class ConfiguratorCalculator
     {
+        /// <summary>
+        /// Добавление сервисов библиотеки в DI
+        /// </summary>
         public static void AddService(IServiceCollection services)
         {
             services.AddTransient<IShapeVisitor, ShapeVisitor>()

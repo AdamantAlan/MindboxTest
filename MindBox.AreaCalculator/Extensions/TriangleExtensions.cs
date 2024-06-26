@@ -9,6 +9,13 @@ namespace MindBox.SquareCalculator.Extensions
 {
     internal static class TriangleExtensions
     {
+        /// <summary>
+        /// проверка является ли треугольник прямоугольным треугольником
+        /// </summary>
+        /// <param name="t">треугольник на котором будет проверка</param>
+        /// <see cref="Triangle"/>
+        /// <see cref="RectangularTriangle"/>
+        /// <returns>треугольник или прямоугольный треугольник</returns>
         public static IShape GetIfRectangular(this Triangle t)
         {
             var sides = new[] { t.SideA, t.SideB, t.SideC }.OrderBy(x => x).ToArray();

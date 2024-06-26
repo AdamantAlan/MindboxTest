@@ -76,7 +76,7 @@ namespace Mindbox.SquareCalculator.Tests
         [Theory]
         [InlineData(nameof(Triangle), 15, 13, 7, 16)]
         [InlineData(nameof(Triangle), 15, 13, 5, 16)]
-        public async Task etSquareShapeAsync_ListTriangle(string expectType, double expectSquare, double a, double b, double c)
+        public async Task GetSquareShapeAsync_ListTriangle(string expectType, double expectSquare, double a, double b, double c)
         {
             var result = await _calculator.GetSquareShapeAsync([new Triangle(a, b, c), new Triangle(a + 2, b + 2, c + 2)]);
             result.ForEach(r => Assert.True(r.TypeShape == expectType && r.Square == expectSquare));
@@ -85,7 +85,7 @@ namespace Mindbox.SquareCalculator.Tests
         [Theory]
         [InlineData(nameof(RectangularTriangle), 25, 3, 4, 5)]
         [InlineData(nameof(RectangularTriangle), 25, 5, 12, 13)]
-        public async Task etSquareShapeAsync_ListRectungularTriangle(string expectType, double expectSquare, double a, double b, double c)
+        public async Task GetSquareShapeAsync_ListRectangularTriangle(string expectType, double expectSquare, double a, double b, double c)
         {
             var result = await _calculator.GetSquareShapeAsync([new Triangle(a, b, c), new Triangle(a * 2, b * 2, c * 2)]);
             result.ForEach(r => Assert.True(r.TypeShape == expectType && r.Square == expectSquare));
@@ -93,7 +93,7 @@ namespace Mindbox.SquareCalculator.Tests
 
         [Theory]
         [InlineData(15, 13, 7, 16, 12, 2, 25, 3, 4, 5)]
-        public async Task etSquareShapeAsync_ListShape(double expectSquareTriangle, double a, double b, double c, 
+        public async Task GetSquareShapeAsync_ListShape(double expectSquareTriangle, double a, double b, double c, 
             double expectSquareCircle, double radius, double expectedRectangle, double rA, double rB, double rC)
         {
             var result = await _calculator.GetSquareShapeAsync([new Triangle(a, b, c), new Circle(radius), new Triangle(rA , rB , rC)]);

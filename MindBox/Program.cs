@@ -25,6 +25,3 @@ namespace MindBox
         }
     }
 }
-
-//todo
-//docs
