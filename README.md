@@ -34,7 +34,9 @@ record struct SquareCalculatorResult(string TypeShape, double? Square)
 
 ## Пример
 ```csharp
+// Зарегистрируйте зависимости в проекте
 ConfiguratorCalculator.AddService(services);
+// Получите из контейнера интерфейс ICalculator
 var calc = provider.GetRequiredService<ICalculator>();
 
 var result = await calc.GetSquareShapeAsync(new Triangle(3, 4, 5)).ConfigureAwait(false);
