@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MindBox.SquareCalculator.Visitor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace MindBox.SquareCalculator.Shapes
 {
-    public sealed record RectangularTriangle : Triangle
+    public sealed record RectangularTriangle(double SideA, double SideB, double Hipotenusa) : IShape
     {
-        public RectangularTriangle(double KatetA, double KatetB, double Hipotenusa) : base(KatetA, KatetB, Hipotenusa)
-        {
-        }
+        public double GetSquare(IShapeVisitor visitor) => visitor.GetSquare(this);
     }
 }

@@ -9,7 +9,7 @@ namespace MindBox.SquareCalculator.Extensions
 {
     internal static class TriangleExtensions
     {
-        public static Triangle GetIfRectangular(this Triangle t)
+        public static IShape GetIfRectangular(this Triangle t)
         {
             var sides = new[] { t.SideA, t.SideB, t.SideC }.OrderBy(x => x).ToArray();
             var isRectangular = Math.Pow(sides[0], 2) + Math.Pow(sides[1], 2) == Math.Pow(sides[2], 2);

@@ -16,7 +16,7 @@ namespace MindBox
             var calc = provider.GetRequiredService<ICalculator>();
 
             //Проверка, что все работает
-            var result = await calc.GetSquareShapeAsync(new Circle(2)).ConfigureAwait(false);
+            var result = await calc.GetSquareShapeAsync(new Triangle(3, 4, 5)).ConfigureAwait(false);
             Console.WriteLine(result.ToString());
 
             List<IShape> shapes = [new Circle(12), new Triangle(13, 7, 16), new Triangle(3, 4, 5)];
